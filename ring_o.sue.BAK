@@ -1,0 +1,27 @@
+proc SCHEMATIC_ring_o {} {
+make inverter_tb -name xi0 -origin {7440 1220}
+make inverter_tb -name xi1 -origin {7710 1220}
+make inverter_tb -name xi2 -origin {7960 1220}
+make name_net -name in1 -origin {7310 1220}
+make name_net -name in2 -origin {7580 1220}
+make name_net -name in3 -origin {7840 1220}
+make output -orient R270 -name vout -origin {8080 1170}
+make dc_voltage -name Vin -dc_voltage 5 -origin {7210 1270}
+make global -name gnd -origin {7210 1350}
+  make_wire 8090 1220 8090 1360
+  make_wire 8090 1360 7290 1360
+  make_wire 7290 1360 7290 1220
+  make_wire 7840 1220 7810 1220
+  make_wire 7840 1220 7860 1220
+  make_wire 7580 1220 7540 1220
+  make_wire 7580 1220 7610 1220
+  make_wire 7310 1220 7290 1220
+  make_wire 7310 1220 7340 1220
+  make_wire 8080 1220 8060 1220
+  make_wire 8080 1220 8090 1220
+  make_wire 8080 1170 8080 1220
+  make_wire 7210 1230 7210 1220
+  make_wire 7210 1220 7290 1220
+  make_wire 7210 1310 7210 1350
+}
+

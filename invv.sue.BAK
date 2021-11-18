@@ -1,0 +1,41 @@
+proc SCHEMATIC_invv {} {
+make output -name out -origin {7900 1160}
+make input -name in -origin {7710 1160}
+make global -name gnd -origin {7840 1370}
+make global -orient RXY -name vdd -origin {7840 950}
+make scmosn4 -name M0 -w 1u -origin {7840 1240}
+make scmosp4 -name M1 -w 2.5u -origin {7840 1080}
+  make_wire 7840 1080 7900 1080
+  make_wire 7900 1080 7900 1040
+  make_wire 7900 1040 7840 1040
+  make_wire 7840 1240 7890 1240
+  make_wire 7890 1240 7890 1280
+  make_wire 7890 1280 7840 1280
+  make_wire 7780 1240 7740 1240
+  make_wire 7740 1080 7780 1080
+  make_wire 7710 1160 7740 1160
+  make_wire 7900 1160 7840 1160
+  make_wire 7840 1160 7840 1200
+  make_wire 7840 1160 7840 1120
+  make_wire 7840 950 7840 1040
+  make_wire 7840 1280 7840 1370
+  make_wire 7740 1080 7740 1160
+  make_wire 7740 1160 7740 1240
+}
+
+proc ICON_invv args {
+
+  icon_setup $args {{origin {0 0}} {orient R0} {name x} {example_param 1.0}}
+icon_term -type input -origin {-100 0} -name in
+icon_term -type output -origin {100 0} -name out
+icon_property -origin {-90 0} -label in
+icon_property -origin {90 0} -anchor e -label out
+icon_property -origin {-90 -40} -label {$name}
+icon_property -origin {-90 -20} -label inverter_tb
+  icon_line -100 -30 100 -30 100 30 -100 30 -100 -30
+icon_property -origin {-90 40} -label {example_param=$example_param}
+  icon_property -origin {-90 100} -type user -name name -default x
+  icon_property -origin {-90 120} -type user -name example_param -default 1.0
+
+}
+
